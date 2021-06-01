@@ -5,5 +5,5 @@ import Home from '../pages/index';
 it('Hello Next.jsは表示されている', () => {
   render(<Home />);
   //   screen.debug();
-  expect(screen.getByText('Hello Next.js')).toBeInTheDocument();
+  expect(screen.getByText('Welcome to Next.js')).toBeInTheDocument();
 });
