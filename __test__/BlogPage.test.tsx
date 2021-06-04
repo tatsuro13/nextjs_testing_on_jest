@@ -14,12 +14,20 @@ const handlers = [
     (req, res, ctx) => {
       return res(
         ctx.status(200),
-        ctx.json({
-          userId: 1,
-          id: 1,
-          title: 'dummy title 1',
-          body: 'dummy body 1',
-        })
+        ctx.json([
+          {
+            userId: 1,
+            id: 1,
+            title: 'dummy title 1',
+            body: 'dummy body 1',
+          },
+          {
+            userId: 2,
+            id: 2,
+            title: 'dummy title 2',
+            body: 'dummy body 2',
+          },
+        ])
       );
     }
   ),
@@ -44,7 +52,7 @@ describe('Blog page', () => {
     });
     render(page);
     expect(await screen.findByText('Blog Page')).toBeInTheDocument();
-    // expect(screen.getByText('dummy title 1')).toBeInTheDocument();
-    // expect(screen.getByText('dummy title 2')).toBeInTheDocument();
+    expect(screen.getByText('dummy title 1')).toBeInTheDocument();
+    expect(screen.getByText('dummy title 2')).toBeInTheDocument();
   });
 });

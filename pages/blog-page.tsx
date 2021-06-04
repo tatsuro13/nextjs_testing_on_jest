@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
-import { getAllTasksData } from '../lib/fetch';
+import { getAllPostsData } from '../lib/fetch';
 import { POST } from '../types/Types';
 
 interface STARICPROPS {
@@ -20,7 +20,7 @@ const BrogPage: React.FC<STARICPROPS> = ({ posts }) => {
 export default BrogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllTasksData();
+  const posts = await getAllPostsData();
   return {
     props: { posts },
   };
